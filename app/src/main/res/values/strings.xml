@@ -22,5 +22,7 @@
     <string name="help_save">Enregistrer le mémo</string>
     <string name="help_delete">Supprimer le mémo</string>
     <string name="help_close">Fermer la fenêtre</string>
-    <string name="help_ratp_disclaimer">L\'ensemble des éléments graphiques de cette application sont la propriété de la Régie Autonome des Transports Parisiens.</string>
+    <string name="help_ratp_disclaimer1">L\'ensemble des éléments graphiques de cette application sont la propriété de la Régie Autonome des Transports Parisiens.</string>
+    <string name="help_ratp_disclaimer2">M et T sont des marques de la RATP. Sous réserve de disponibilité, les logotypes de la RATP sont téléchargeables et exploitables gratuitement à partir du site http://data.ratp.fr dans les conditions visées au sein de celui-ci.</string>
+
 </resources>

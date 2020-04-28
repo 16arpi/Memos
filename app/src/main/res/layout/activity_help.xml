@@ -56,7 +56,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textViewHelp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#000"
@@ -84,7 +84,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/textViewTopTitle"
+                app:layout_constraintStart_toEndOf="@+id/textViewHelp"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -265,31 +265,24 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="13dp"
                 android:layout_marginEnd="16dp"
                 android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imgDot2"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="16dp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:alpha="0.7"
+                    android:text="@string/help_ratp_disclaimer2"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.7"
-                        android:lines="5"
-                        android:text="@string/help_ratp_disclaimer"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
-                </LinearLayout>
-
-            </LinearLayout>
+            s</LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
