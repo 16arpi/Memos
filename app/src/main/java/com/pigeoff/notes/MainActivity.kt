@@ -44,10 +44,18 @@ class MainActivity : AppCompatActivity() {
 
         var addDot: ImageView = findViewById(R.id.imageViewDot2)
         var textAdd: TextView = findViewById(R.id.textAddNote)
+        var btnHelp: Button = findViewById(R.id.btnHelp)
+
         textAdd.setOnClickListener {
             var intent = Intent(this, EditActivity::class.java)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, addDot, "topBar")
-            startActivity(intent, options.toBundle())
+            startActivity(intent)
+        }
+
+        btnHelp.setOnClickListener {
+            var intent = Intent(this, HelpActivity::class.java)
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, addDot, "topBar")
+            startActivity(intent)
         }
 
         configTheme(metro, recyclerView, notesList)
@@ -56,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         var notesList = db!!.notesDAO().getAllNotes()
-        globalAdapter?.updateData(notesList)
+        globalAdapter?.updateData(notesList, MetroTheme.MetroBuilder(metroId).drawable)
         super.onResume()
     }
 
@@ -73,7 +81,9 @@ class MainActivity : AppCompatActivity() {
         var themeClickListener = View.OnClickListener {
             var newMetro = MetroTheme().setNextMetro(this, metroId)
             metroId = newMetro.id
-            recyclerView?.adapter = MainAdapter(this, notesList, newMetro.drawable)
+
+            var notesList = db!!.notesDAO().getAllNotes()
+            globalAdapter?.updateData(notesList, MetroTheme.MetroBuilder(metroId).drawable)
             configTheme(newMetro, recyclerView, notesList)
         }
 

@@ -74,22 +74,37 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/imageButton2"
+                android:id="@+id/btnSave"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/circle_rer"
-                android:text="RER"
-                android:textColor="#050D9E"
-                android:textSize="12sp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/circle_save"
+                android:text="@string/letter_save"
+                android:textColor="@color/rerD"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                app:layout_constraintEnd_toStartOf="@+id/btnDelete"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/textViewTopTitle"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/imageButton"
+                android:id="@+id/btnClose"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/circle_rer"
+                android:text="×"
+                android:textColor="@color/ratp_blue"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/textViewTopTitle"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnDelete"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginEnd="16dp"
@@ -98,7 +113,7 @@
                 android:textColor="#E2231A"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnClose"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/textViewTopTitle"
                 app:layout_constraintTop_toTopOf="parent" />

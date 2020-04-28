@@ -1,16 +1,26 @@
 <resources>
     <string name="app_name">Mémos</string>
     <string name="add_memo">Ajouter</string>
-    <string name="edit_memo" >Modifier</string>
+    <string name="edit_memo">Modifier</string>
+    <string name="help_memo">Aide</string>
+    <string name="action_back">Retour</string>
     <string name="indicator_title">Station</string>
     <string name="indicator_content">Mémo</string>
-    <string name="no_title" >Aucun titre</string>
+    <string name="no_title">Aucun titre</string>
     <string name="letter_delete">S</string>
-    <string name="indicator_theme_changed" >Thème mis à jour</string>
+    <string name="letter_save">E</string>
+    <string name="indicator_theme_changed">Thème mis à jour</string>
+    <string name="indicator_saved_note">Mémo enregistré</string>
+    <string name="indicator_disclaimer">Avertissement</string>
 
     <string name="confirm_message">Voulez-vous vraiment supprimer ce mémo ?</string>
     <string name="confirm_cancel">Annuler</string>
     <string name="confirme_ok">Ok</string>
 
-    <string name="m3bis"></string>
+    <!-- HELP -->
+    <string name="help_theme" >Changer de thème</string>
+    <string name="help_save">Enregistrer le mémo</string>
+    <string name="help_delete">Supprimer le mémo</string>
+    <string name="help_close">Fermer la fenêtre</string>
+    <string name="help_ratp_disclaimer">L\'ensemble des éléments graphiques de cette application sont la propriété de la Régie Autonome des Transports Parisiens.</string>
 </resources>

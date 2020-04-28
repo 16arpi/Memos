@@ -34,14 +34,16 @@ class MainAdapter(private val context: MainActivity, private var notesList: List
             var intent = Intent(context, EditActivity::class.java)
             intent.putExtra("id", note?.id)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context, holder.imageDot, "transitionTitre")
-            context.startActivity(intent, options.toBundle())
+            context.startActivity(intent)
         }
 
     }
 
-    fun updateData(data: List<RmNotes>) {
+    fun updateData(data: List<RmNotes>, clr: Int) {
         notesList = data
+        color = clr
         notifyDataSetChanged()
+        notifyItemRangeChanged(0, itemCount)
     }
 
 

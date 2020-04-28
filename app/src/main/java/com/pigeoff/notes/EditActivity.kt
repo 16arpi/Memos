@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.room.Room
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.pigeoff.notes.database.RmDatabase
 import com.pigeoff.notes.database.RmNotes
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -52,8 +53,9 @@ class EditActivity : AppCompatActivity() {
         var topTitle = findViewById<TextView>(R.id.textViewTopTitle)
         var EDIT_TITLE: EditText = findViewById(R.id.editTextTitle)
         var EDIT_CONTENT: EditText = findViewById(R.id.editTextContent)
-        var DELETE: Button = findViewById(R.id.imageButton)
-        var DELETE2: Button = findViewById(R.id.imageButton2)
+        var CLOSE: Button = findViewById(R.id.btnClose)
+        var DELETE: Button = findViewById(R.id.btnDelete)
+        var SAVE: Button = findViewById(R.id.btnSave)
 
         var id = intent.getIntExtra("id", NO_ID)
         if (id != NO_ID) {
@@ -89,7 +91,7 @@ class EditActivity : AppCompatActivity() {
         editTextTitle.addTextChangedListener(watcher)
         editTextContent.addTextChangedListener(watcher)
 
-        var deleteListener = View.OnClickListener {
+        DELETE.setOnClickListener {
             if (EDIT_STATUT == 0) {
                 delete(NO_ID)
             }
@@ -98,27 +100,36 @@ class EditActivity : AppCompatActivity() {
             }
         }
 
-        DELETE.setOnClickListener(deleteListener)
-        DELETE2.setOnClickListener(deleteListener)
+        SAVE.setOnClickListener {
+            saveNote()
+            Snackbar
+                .make(it, getString(R.string.indicator_saved_note), Snackbar.LENGTH_SHORT)
+                .setTextColor(Color.parseColor(metro.textColorString))
+                .setBackgroundTint(Color.parseColor(metro.colorString))
+                .show()
+        }
+
+        CLOSE.setOnClickListener {
+            saveNote()
+            supportFinishAfterTransition()
+            ActivityCompat.finishAfterTransition(this)
+        }
+
+
 
     }
 
     override fun onBackPressed() {
-        if (EDIT_STATUT == 0) {
-            if (!NOTE?.titre.isNullOrEmpty() || !NOTE?.content.isNullOrEmpty())
-            DB!!.notesDAO().newNote(NOTE)
-        }
-        else if (EDIT_STATUT == 1) {
-            DB!!.notesDAO().updateNote(NOTE)
-        }
+        saveNote()
         supportFinishAfterTransition()
+        ActivityCompat.finishAfterTransition(this)
         super.onBackPressed()
     }
 
     fun delete(id: Int?){
         if (id == NO_ID) {
             supportFinishAfterTransition()
-            ActivityCompat.finishAfterTransition(this);
+            ActivityCompat.finishAfterTransition(this)
         }
         else {
             AlertDialog.Builder(this)
@@ -161,6 +172,16 @@ class EditActivity : AppCompatActivity() {
         leftLine.setBackgroundColor(Color.parseColor(metro.colorString))
         imageDot.setImageDrawable(this.getDrawable(metro.drawable))
 
+    }
+
+    fun saveNote() {
+        if (EDIT_STATUT == 0) {
+            if (!NOTE?.titre.isNullOrEmpty() || !NOTE?.content.isNullOrEmpty())
+                DB!!.notesDAO().newNote(NOTE)
+        }
+        else if (EDIT_STATUT == 1) {
+            DB!!.notesDAO().updateNote(NOTE)
+        }
     }
 
 
