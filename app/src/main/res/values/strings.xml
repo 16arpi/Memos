@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Mémos</string>
+    <string name="add_memo">Ajouter</string>
+    <string name="edit_memo" >Modifier</string>
+    <string name="indicator_title">Station</string>
+    <string name="indicator_content">Mémo</string>
+    <string name="no_title" >Aucun titre</string>
+    <string name="letter_delete">S</string>
+    <string name="indicator_theme_changed" >Thème mis à jour</string>
+
+    <string name="confirm_message">Voulez-vous vraiment supprimer ce mémo ?</string>
+    <string name="confirm_cancel">Annuler</string>
+    <string name="confirme_ok">Ok</string>
+
+    <string name="m3bis"></string>
+</resources>
