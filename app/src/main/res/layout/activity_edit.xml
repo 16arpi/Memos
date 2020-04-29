@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditActivity"
+    android:background="#ffffff"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     style="@style/Theme.AppCompat.Light.NoActionBar">
 
     <View
@@ -198,6 +201,7 @@
                         android:id="@+id/editTextContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="30dp"
                         android:background="#00000000"
                         android:ems="10"
                         android:gravity="start|top"

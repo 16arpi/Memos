@@ -58,6 +58,7 @@ class EditActivity : AppCompatActivity() {
         var SAVE: Button = findViewById(R.id.btnSave)
 
         var id = intent.getIntExtra("id", NO_ID)
+
         if (id != NO_ID) {
             EDIT_STATUT = 1
             topTitle.text = getString(R.string.edit_memo)
@@ -67,11 +68,11 @@ class EditActivity : AppCompatActivity() {
         }
         else {
             //EDIT_TITLE?.requestFocus()
-            EDIT_TITLE.setOnFocusChangeListener { v, hasFocus ->
+            /*EDIT_TITLE.setOnFocusChangeListener { v, hasFocus ->
                 if (hasFocus) {
                     getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
                 }
-            }
+            }*/
         }
 
         var watcher = object : TextWatcher {
@@ -148,18 +149,16 @@ class EditActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        var id = intent.getIntExtra("id", NO_ID)
+        var newId = intent.getIntExtra("id", NO_ID)
         var EDIT_TITLE: EditText = findViewById(R.id.editTextTitle)
+        var EDIT_CONTENT: EditText = findViewById(R.id.editTextContent)
 
         Handler().postDelayed({
-            if (id != NO_ID) {
-                true
+            if (newId != NO_ID) {
+
             }
             else {
-                EDIT_TITLE.requestFocus()
-                val inputMethodManager: InputMethodManager =
-                    this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+                showKeyboard(true, EDIT_TITLE)
             }
         }, 400)
 
@@ -178,9 +177,26 @@ class EditActivity : AppCompatActivity() {
         if (EDIT_STATUT == 0) {
             if (!NOTE?.titre.isNullOrEmpty() || !NOTE?.content.isNullOrEmpty())
                 DB!!.notesDAO().newNote(NOTE)
+            var allMemos = DB!!.notesDAO().getAllNotes()
+            var createdMemo = allMemos.first()
+            NOTE.id = createdMemo.id
+            EDIT_STATUT = 1
         }
         else if (EDIT_STATUT == 1) {
             DB!!.notesDAO().updateNote(NOTE)
+        }
+    }
+
+    fun showKeyboard(condition: Boolean, edit: EditText) {
+        if (condition) {
+            edit.requestFocus()
+            edit.setSelection(edit.text.length)
+            val inputMethodManager: InputMethodManager =
+                this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+        }
+        else {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         }
     }
 
