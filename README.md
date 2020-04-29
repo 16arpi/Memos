@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/16arpi/Memos/master/app/src/main/res/mipmap-xhdpi/ic_memo.png" /> 
 
-Petit application de notes qui reprend le grahisme de la RATP.
+Petit application de notes qui reprend le grahisme du métro parisien. Vous pouvez changer le thème de l'appli et choisir les couleurs de la ligne qui vous plaie le mieux. Cette appli reprend les couleurs et logotypes de la RATP. La bibliothèque additionnelle de codes utilisée est la [bibliothèque Material Design](https://material.io/).
 
 ## Captures d'écran
 
