@@ -1,5 +1,14 @@
 # Mémos
+
+<img src="https://raw.githubusercontent.com/16arpi/Memos/master/app/src/main/res/mipmap-xhdpi/ic_memo.png" /> 
+
 Petit application de notes qui reprend le grahisme de la RATP.
+
+## Captures d'écran
+
+<img src="https://raw.githubusercontent.com/16arpi/Memos/master/screenshots/screenshot-1.png" width="200" /> <img src="https://raw.githubusercontent.com/16arpi/Memos/master/screenshots/screenshot-2.png" width="200" /> <img src="https://raw.githubusercontent.com/16arpi/Memos/master/screenshots/screenshot-3.png" width="200" /> <img src="https://raw.githubusercontent.com/16arpi/Memos/master/screenshots/screenshot-4.png" width="200" />
+
+
 ## Licence
 Sous licence GPL-3.0. Réutilisez à l'infinie ce code de basse qualité, mais n'oubliez pas de mentioner l'origine malgré tout.
 
